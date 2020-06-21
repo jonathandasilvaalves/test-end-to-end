@@ -1,0 +1,17 @@
+{
+  "name": "criar_usuarios",
+  "version": "1.0.0",
+  "description": "Automaçao de criaçao de usuarios site Bruno Batista",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "webdriver-manager update",
+    "test": "protractor conf.js"
+  },
+  "author": "Jonathan Alves",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine-spec-reporter": "^4.2.1",
+    "protractor": "^5.4.2",
+    "protractor-helper": "^3.7.7",
+    "protractor-jasmine2-html-reporter": "0.0.7"
+  }}
