@@ -10,30 +10,35 @@ exports.config = {
       .timeouts()
       .implicitlyWait(3000);
 
-      jasmine.getEnv().addReporter(
-        new SpecReporter({
-          suite: { displayNumber: true },
-          spec: {
-            displayFailed: true,
-            displayPending: true,
-            displayDuration: true,
-            displayStackTrace: true
-          },
-          summary: { displayFailed: true }
-        })
-      );
+    jasmine.getEnv().addReporter(
+      new SpecReporter({
+        suite: { displayNumber: true },
+        spec: {
+          displayFailed: true,
+          displayPending: true,
+          displayDuration: true,
+          displayStackTrace: true
+        },
+        summary: { displayFailed: true }
+      })
+    );
 
-      var JasmineHtmlReporter = require("protractor-jasmine2-html-reporter");
+    var JasmineHtmlReporter = require("protractor-jasmine2-html-reporter");
 
-      jasmine.getEnv().addReporter(
-        new JasmineHtmlReporter({
-          savePath: "reports",
-          screenshotsFolder: ".shots",
-          cleanDestination: false,
-          fixedScreenshotName: true
-        })
-      );
+    jasmine.getEnv().addReporter(
+      new JasmineHtmlReporter({
+        savePath: "reports",
+        screenshotsFolder: ".shots",
+        cleanDestination: false,
+        fixedScreenshotName: true
+      })
+    );
   },
-  //jasmineNodeOpts: { random: true, print: function() {} },
-  capabilities: { browserName: "firefox" }
+
+  jasmineNodeOpts: { random: true, print: function() {} },
+  capabilities: {
+    browserName: "chrome", chromeOptions: {
+      args: ["--headless", "--disable-gpu"]
+    }
+  }
 };
